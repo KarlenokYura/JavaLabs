@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="AS_KYA" default = "copy" >
+<target name="init">
+ <echo message="Building AS_KYA Project" />
+</target>
+<target name="create" depends ="init">
+ <delete dir= "C:\Program Files\Apache Software Foundation\Tomcat 7.0\webapps\AS_KYA\" />
+ <mkdir dir= "C:\Program Files\Apache Software Foundation\Tomcat 7.0\webapps\AS_KYA\" />
+ <mkdir dir= "C:\Program Files\Apache Software Foundation\Tomcat 7.0\webapps\AS_KYA\WEB-INF\" />
+</target>
+
+<target name="copy" depends ="create">
+ <copy file= "D:\JavaLab\Lab_1\web.xml"
+ todir="C:\Program Files\Apache Software Foundation\Tomcat 7.0\webapps\AS_KYA\WEB-INF\" />
+ <copy file= "D:\JavaLab\Lab_1\WebContent\index.html"
+ todir="C:\Program Files\Apache Software Foundation\Tomcat 7.0\webapps\AS_KYA\" />
+ <copy file= "D:\JavaLab\Lab_1\WebContent\address.html"
+ todir="C:\Program Files\Apache Software Foundation\Tomcat 7.0\webapps\AS_KYA\" />
+ <copy file= "D:\JavaLab\Lab_1\WebContent\education.html"
+ todir="C:\Program Files\Apache Software Foundation\Tomcat 7.0\webapps\AS_KYA\" />
+ <copy file= "D:\JavaLab\Lab_1\WebContent\image/image.jpg"
+ todir="C:\Program Files\Apache Software Foundation\Tomcat 7.0\webapps\AS_KYA\image\" />
+ </target>
+</project> 

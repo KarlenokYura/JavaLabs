@@ -1,0 +1,45 @@
+<project name="Lab_9" default = "copy" >
+	<target name="init">
+ 		<echo message="Build Lab_9 Project" />
+ 		<property name = "server"
+ 		value = "C:\Program Files\Apache Software Foundation\Tomcat 7.0\" />
+ 		<property name = "work"
+ 		value = "D:\JavaLab\Lab_9\" />
+	</target>
+	
+	<target name="compile" depends ="init">
+ 		<delete verbose ="true">
+ 			<fileset dir="${work}build"/>
+ 		</delete>
+		<javac srcdir = "${work}src" destdir = "${work}\build">
+			<classpath>
+		    	<fileset file= "${server}lib\servlet-api.jar" />
+		        <fileset file= "${server}lib\jsp-api.jar"/>
+			</classpath>
+		</javac>
+	</target>
+	
+	<target name="create" depends ="compile">
+ 		<delete dir= "${server}webapps\Lab_9\" />
+ 		<mkdir dir= "${server}webapps\Lab_9\" />
+ 		<mkdir dir= "${server}webapps\Lab_9\WEB-INF" />
+	</target>
+
+	<target name="copy" depends ="create">
+ 		<copy file= "${work}web.xml"
+ 		todir="${server}webapps\Lab_9\WEB-INF\" />
+ 		<copy file= "${work}WebContent\index.jsp"
+ 		todir="${server}webapps\Lab_9\" />
+		<copy file= "${work}WebContent\url1.jsp"
+		todir="${server}webapps\Lab_9\" />
+		<copy file= "${work}WebContent\Ccc.jsp"
+		todir="${server}webapps\Lab_9\" />
+		<copy file= "${work}WebContent\CccRequest.jsp"
+		todir="${server}webapps\Lab_9\" />
+		<copy file= "${work}WebContent\CccSession.jsp"
+		todir="${server}webapps\Lab_9\" />
+ 		<copy todir="${server}webapps\Lab_9\WEB-INF\classes">
+ 		<fileset dir="${work}build"/>
+ 		</copy>
+	</target>
+</project> 

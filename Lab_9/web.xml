@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+ version="2.5">
+ 
+ 	<display-name>Lab_9</display-name>
+ 
+    <context-param>
+        <param-name>URL1</param-name>
+        <param-value>http://localhost:8080/Lab_9/url1.jsp</param-value>
+    </context-param>
+    <context-param>
+        <param-name>URL2</param-name>
+        <param-value>http://localhost:8080/Lab_9/url2</param-value>
+    </context-param>
+    <servlet-mapping>
+        <servlet-name>urln</servlet-name>
+        <url-pattern>/urln</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>urln</servlet-name>
+        <servlet-class>urln</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>url2</servlet-name>
+        <url-pattern>/url2</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>url2</servlet-name>
+        <servlet-class>url2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Ccc</servlet-name>
+        <url-pattern>/Ccc</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Ccc</servlet-name>
+        <servlet-class>Ccc</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CccRequest</servlet-name>
+        <url-pattern>/CccRequest</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CccRequest</servlet-name>
+        <servlet-class>CccRequest</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CccSession</servlet-name>
+        <url-pattern>/CccSession</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CccSession</servlet-name>
+        <servlet-class>CccSession</servlet-class>
+    </servlet>
+    
+    <filter-mapping>
+        <filter-name>F1</filter-name>
+        <url-pattern>/Ccc</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>F3</filter-name>
+        <url-pattern>/Ccc</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>F2</filter-name>
+        <url-pattern>/Ccc.jsp</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>F1</filter-name>
+        <filter-class>F1</filter-class>
+    </filter>
+    <filter>
+        <filter-name>F2</filter-name>
+        <filter-class>F2</filter-class>
+    </filter>
+    <filter>
+        <filter-name>F3</filter-name>
+        <filter-class>F3</filter-class>
+    </filter>
+    
+    <listener>
+        <listener-class>L1</listener-class>
+    </listener>
+    <listener>
+        <listener-class>L2</listener-class>
+    </listener>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

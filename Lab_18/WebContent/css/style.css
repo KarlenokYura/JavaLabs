@@ -1,0 +1,17 @@
+table {
+    border: 1px solid black;
+}
+td {
+    border: 0px;
+}
+textarea {
+    margin-bottom: -5px; 
+    margin-left: 2px; 
+    height: 20px;
+    padding: 0px
+}
+.admin {
+    background: transparent;
+    border: none !important;
+    font-size:0;
+}

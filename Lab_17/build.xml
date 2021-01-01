@@ -1,0 +1,36 @@
+<project name="Lab_17" default = "copy" >
+	<target name="init">
+ 		<echo message="Build Lab_17 Project" />
+ 		<property name = "server"
+ 		value = "D:\Jetty\" />
+ 		<property name = "work"
+ 		value = "D:\JavaLab\Lab_17\" />
+	</target>
+	
+	<target name="compile" depends ="init">
+ 		<delete verbose ="true">
+ 			<fileset dir="${work}build"/>
+ 		</delete>
+		<javac srcdir = "${work}src" destdir = "${work}\build">
+			<classpath>
+		    	<fileset file= "${server}lib\servlet-api-3.1.jar" />
+			</classpath>
+		</javac>
+	</target>
+	
+	<target name="create" depends ="compile">
+ 		<delete dir= "${server}webapps\Lab_17\" />
+ 		<mkdir dir= "${server}webapps\Lab_17\" />
+ 		<mkdir dir= "${server}webapps\Lab_17\WEB-INF" />
+	</target>
+
+	<target name="copy" depends ="create">
+ 		<copy file= "${work}web.xml"
+ 		todir="${server}webapps\Lab_17\WEB-INF\" />
+ 		<copy file= "${work}WebContent\index.html"
+ 		todir="${server}webapps\Lab_17\" />
+ 		<copy todir="${server}webapps\Lab_17\WEB-INF\classes">
+ 		<fileset dir="${work}build"/>
+ 		</copy>
+	</target>
+</project> 

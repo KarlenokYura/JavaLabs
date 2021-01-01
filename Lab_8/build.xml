@@ -1,0 +1,37 @@
+<project name="Lab_8" default = "copy" >
+	<target name="init">
+ 		<echo message="Build Lab_8 Project" />
+ 		<property name = "server"
+ 		value = "C:\Program Files\Apache Software Foundation\Tomcat 7.0\" />
+ 		<property name = "work"
+ 		value = "D:\JavaLab\Lab_8\" />
+	</target>
+	
+	<target name="compile" depends ="init">
+ 		<delete verbose ="true">
+ 			<fileset dir="${work}build"/>
+ 		</delete>
+		<javac srcdir = "${work}src" destdir = "${work}\build">
+			<classpath>
+		    	<fileset file= "${server}lib\servlet-api.jar" />
+				<fileset dir= "${server}\lib" />
+			</classpath>
+		</javac>
+	</target>
+	
+	<target name="create" depends ="compile">
+ 		<delete dir= "${server}webapps\Lab_8\" />
+ 		<mkdir dir= "${server}webapps\Lab_8\" />
+ 		<mkdir dir= "${server}webapps\Lab_8\WEB-INF" />
+	</target>
+
+	<target name="copy" depends ="create">
+ 		<copy file= "${work}web.xml"
+ 		todir="${server}webapps\Lab_8\WEB-INF\" />
+ 		<copy file= "${work}WebContent\index.html"
+ 		todir="${server}webapps\Lab_8\" />
+		<copy todir="${server}webapps\Lab_8\WEB-INF\classes">
+		<fileset dir="${work}build"/>
+		</copy>
+	</target>
+</project> 

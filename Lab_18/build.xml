@@ -1,0 +1,43 @@
+<project name="Lab_18" default = "copy" >
+	<target name="init">
+ 		<echo message="Build Lab_18 Project" />
+ 		<property name = "server"
+ 		value = "C:\Program Files\Apache Software Foundation\Tomcat 7.0\" />
+ 		<property name = "work"
+ 		value = "D:\JavaLab\Lab_18\" />
+	</target>
+	
+	<target name="compile" depends ="init">
+	 	<delete verbose ="true">
+	 		<fileset dir="${work}build"/>
+	 	</delete>
+		<javac srcdir = "${work}src" destdir = "${work}\build">
+			<classpath>
+			    <fileset file= "${server}lib\servlet-api.jar" />
+				<fileset file= "${server}lib\gson-2.6.2.jar" />
+			</classpath>
+		</javac>
+	</target>
+	
+	<target name="create" depends ="compile">
+ 		<delete dir= "${server}webapps\Lab_18\" />
+ 		<mkdir dir= "${server}webapps\Lab_18\" />
+ 		<mkdir dir= "${server}webapps\Lab_18\WEB-INF" />
+	</target>
+
+	<target name="copy" depends ="create">
+ 		<copy file= "${work}web.xml"
+ 		todir="${server}webapps\Lab_18\WEB-INF\" />
+ 		<copy file= "${work}WebContent\index.jsp"
+ 		todir="${server}webapps\Lab_18\" />
+ 		<copy todir="${server}webapps\Lab_18\WEB-INF\classes">
+ 		<fileset dir="${work}build"/>
+ 		</copy>
+ 		<copy todir="${server}webapps\Lab_18\css">
+ 		<fileset dir="${work}WebContent\css"/>	
+ 		</copy>
+		<copy todir="${server}webapps\Lab_18\script">
+		<fileset dir="${work}WebContent\script"/>	
+		</copy>
+	</target>
+</project> 

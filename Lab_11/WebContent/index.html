@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Index</title>
+    <script type="text/javascript" src="Header.js"></script>
+    <script type="text/javascript" src="XML.js"></script>
+    <script type="text/javascript" src="JSON.js"></script>
+</head>
+<body>
+<form action="#" method="POST">
+    <input name="x" type="text" placeholder="x"/>
+    <input name="y" type="text" placeholder="y"/>
+    <br/>
+    <input name="BAdd" value="Add" type="button" onclick="OnClick_Header(x, y, z)"/>
+    <br/>
+    <input name="z" id="z" type="text"  title="z"/>
+</form>
+<br/>
+<form name="FXML" action="#" method="POST">
+    <input name="n" type="text" value="10" placeholder="n"/>
+    <br/>
+    <input name="BRand" value="Rand" type="button" onclick="OnClick_XML(this.form.n.value)"/>
+    <div id="div_xml"></div>
+</form>
+<br/>
+<form name="FXML" action="#" method="POST">
+    <input name="n" type="text" value="10" size="2" maxlength="2" placeholder="n"/>
+    <br/>
+    <input name="BRand" value="Rand" type="button" onclick="OnClick_JSON(this.form.n.value/*, document.getElementById('json').innerHTML*/)"/>
+    <div id="div_json"></div>
+</form>
+
+</body>
+</html>

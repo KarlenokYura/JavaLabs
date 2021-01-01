@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+ version="2.5">
+ 
+ 	<display-name>Lab_15</display-name>
+ 	
+ 	<context-param>
+        <param-name>MailLogin</param-name>
+        <param-value>contactdirectory@yandex.by</param-value>
+    </context-param>
+    <context-param>
+        <param-name>MailPassword</param-name>
+        <param-value>14022000</param-value>
+    </context-param>
+ 	
+ 	<context-param>
+        <param-name>SmtpHost</param-name>
+        <param-value>smtp.yandex.ru</param-value>
+    </context-param>
+    <context-param>
+        <param-name>SmtpPort</param-name>
+        <param-value>587</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>ImapHost</param-name>
+        <param-value>imap.yandex.ru</param-value>
+    </context-param>
+    <context-param>
+        <param-name>ImapPort</param-name>
+        <param-value>993</param-value>
+    </context-param>
+ 	
+ 	<servlet>
+ 		<servlet-name>MailServlet</servlet-name>
+ 		<servlet-class>MailServlet</servlet-class>
+ 	</servlet>
+ 	<servlet-mapping>
+ 		<servlet-name>MailServlet</servlet-name>
+ 		<url-pattern>/MailServlet</url-pattern>
+ 	</servlet-mapping>
+ 	
+ 	<servlet>
+ 		<servlet-name>ReadEmail</servlet-name>
+ 		<servlet-class>ReadEmail</servlet-class>
+ 	</servlet>
+ 	<servlet-mapping>
+ 		<servlet-name>ReadEmail</servlet-name>
+ 		<url-pattern>/ReadEmail</url-pattern>
+ 	</servlet-mapping>
+ 	
+ 	<welcome-file-list>
+ 		<welcome-file>index.jsp</welcome-file>
+ 	</welcome-file-list>
+    
+</web-app> 

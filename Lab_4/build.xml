@@ -1,0 +1,42 @@
+<project name="Lab_4" default = "copy" >
+	<target name="init">
+ 		<echo message="Build Lab_4 Project" />
+ 		<property name = "server"
+ 		value = "C:\Program Files\Apache Software Foundation\Tomcat 7.0\" />
+ 		<property name = "work"
+ 		value = "D:\JavaLab\Lab_4\" />
+	</target>
+	
+	<target name="compile" depends ="init">
+ 		<delete verbose ="true">
+ 			<fileset dir="${work}build"/>
+ 		</delete>
+ 		<javac srcdir = "${work}src"
+ 			destdir = "${work}\build"
+ 			classpath = "${server}lib\servlet-api.jar"/>
+	</target>
+	
+	<target name="create" depends ="compile">
+ 		<delete dir= "${server}webapps\Lab_4\" />
+ 		<mkdir dir= "${server}webapps\Lab_4\" />
+ 		<mkdir dir= "${server}webapps\Lab_4\WEB-INF" />
+	</target>
+
+	<target name="copy" depends ="create">
+ 		<copy file= "${work}web.xml"
+ 		todir="${server}webapps\Lab_4\WEB-INF\" />
+ 		<copy file= "${work}WebContent\index.jsp"
+ 		todir="${server}webapps\Lab_4\" />
+		<copy file= "${work}WebContent\night.jsp"
+		todir="${server}webapps\Lab_4\" />
+		<copy file= "${work}WebContent\morning.jsp"
+		todir="${server}webapps\Lab_4\" />
+		<copy file= "${work}WebContent\afternoon.jsp"
+		todir="${server}webapps\Lab_4\" />
+		<copy file= "${work}WebContent\evening.jsp"
+		todir="${server}webapps\Lab_4\" />
+ 		<copy todir="${server}webapps\Lab_4\WEB-INF\classes">
+ 		<fileset dir="${work}build"/>
+ 		</copy>
+	</target>
+</project> 
